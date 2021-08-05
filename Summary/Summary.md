@@ -681,7 +681,7 @@ original image -> low-level features -> mid-level features -> high-level feature
 - CONV1: change from (11x11 stride 4) to (7x7 stride 2) -> smaller filter
 - CONV3,4,5: instead of 384, 384, 256 filters use 512, 1024, 512 -> deeper
 
-## **VGGNet**
+## VGGNet
 
 - **Small filters, Deeper networks**
 - 8 layers (AlexNet) -> **16 - 19 layers** (VGG16Net)
@@ -700,7 +700,7 @@ original image -> low-level features -> mid-level features -> high-level feature
 - Use **ensembles** for best results
 - **FC7 features generalize well to other tasks**
 
-## **GoogleLeNet**
+## GoogleLeNet
 
 - **Deeper** networks, with **computational efficiency**
 - 22 layers
@@ -718,7 +718,7 @@ original image -> low-level features -> mid-level features -> high-level feature
 
 ![google net](./pictures/googleLeNet.png)
 
-## **ResNet**
+## ResNet
 
 - Very deep networks using **residual connections**
 - **152-layer** model for ImageNet
