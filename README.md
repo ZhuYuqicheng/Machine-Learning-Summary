@@ -66,46 +66,44 @@
 
 ### Learning model = **Hypothesis Set** + **Learning Algorithm**
 
-> A Simple Hypothesis Set (Perceptron)
->
-> <img src="https://latex.codecogs.com/svg.latex?h(x)=sign((\sum_{i=1}^{d}w_ix_i)-threshold)\ with\ x_o=1 \Rightarrow h(x) = sign(W^Tx)" />
->
-> A Simple Learning Algorithm (PLA)
->
-> - pick a **misclassified** point: <img src="https://latex.codecogs.com/svg.latex?sign(w^Tx_n)\neq y_n" />
-> - **update** the weight vector: <img src="https://latex.codecogs.com/svg.latex?w\leftarrow w+y_nx_n" />
+- A Simple Hypothesis Set (Perceptron)
+  - <img src="https://latex.codecogs.com/svg.latex?h(x)=sign((\sum_{i=1}^{d}w_ix_i)-threshold)\ with\ x_o=1 \Rightarrow h(x) = sign(W^Tx)" />
+
+- A Simple Learning Algorithm (PLA)
+  - pick a **misclassified** point: <img src="https://latex.codecogs.com/svg.latex?sign(w^Tx_n)\neq y_n" />
+  - **update** the weight vector: <img src="https://latex.codecogs.com/svg.latex?w\leftarrow w+y_nx_n" />
 
 ### Hoeffding's Inequality
 
-><img src="https://latex.codecogs.com/svg.latex?P[|sample\_mean - popular\_mean|>\epsilon (tolerance)]\leq 2e^{-2\epsilon^2N} (confidence)" />
->
+<img src="https://latex.codecogs.com/svg.latex?P[|sample\_mean - popular\_mean|>\epsilon (tolerance)]\leq 2e^{-2\epsilon^2N} (confidence)" />
+
 > The probability of the difference between sample and fact larger than the tolerance is bounded by a confidence upper bound, which dependent of the number of samples.
 >
 > - the larger sample number, the smaller is the upper bound of probability
 > - smaller tolerance need more samples
->
-> <img src="https://latex.codecogs.com/svg.latex?P[|E_{in}(h) - E_{out}(h)|>\epsilon]\leq 2e^{-2\epsilon^2N}" />
->
+
+<img src="https://latex.codecogs.com/svg.latex?P[|E_{in}(h) - E_{out}(h)|>\epsilon]\leq 2e^{-2\epsilon^2N}" />
+
 > - E<sub>in</sub>(h): in sample error 
 >   - <img src="https://latex.codecogs.com/svg.latex?\frac{1}{N}\sum_{n=1}^{N}e(h(x_n), f(x_n ))" />
 > - E<sub>out</sub>(h): out of sample error 
 >   - <img src="https://latex.codecogs.com/svg.latex?E_x[e(h(x_n), f(x_n )]" />
->
-> **If learning is feasible**
-> - <img src="https://latex.codecogs.com/svg.latex?E_{out} \approx E_{in}" />
+
+- **If learning is feasible**
+  - <img src="https://latex.codecogs.com/svg.latex?E_{out} \approx E_{in}" />
 
 ### Union Bound
 
 Hoeffding's Inequality doesn't apply to hypothesis set.
 
-> <img src="https://latex.codecogs.com/svg.latex?P[|E_{in}(g) - E_{out}(g)|>\epsilon]\leq 2Me^{-2\epsilon^2N}" />
+- <img src="https://latex.codecogs.com/svg.latex?P[|E_{in}(g) - E_{out}(g)|>\epsilon]\leq 2Me^{-2\epsilon^2N}" />
 >
 > - g (final hypothesis): h<sub>1</sub>...h<sub>m</sub>
 > - M hypothesis function in hypothesis set
 
 ### Vapnik-Chervonenkis Inequality
 
-> Generalization: <img src="https://latex.codecogs.com/svg.latex?g\approx f \Rightarrow E_{out}(g)\approx 0" />
+- Generalization: <img src="https://latex.codecogs.com/svg.latex?g\approx f \Rightarrow E_{out}(g)\approx 0" />
 >
 > - <img src="https://latex.codecogs.com/svg.latex?E_{out}(g)\approx E_{in}(g)" /> (generalizaiton)
 > - <img src="https://latex.codecogs.com/svg.latex?E_{in}(g)\approx 0" /> (approximation)
@@ -125,7 +123,7 @@ Hoeffding's Inequality doesn't apply to hypothesis set.
       
 
 - Vapnik-Chervonenkis Inequality
-  > - <img src="https://latex.codecogs.com/svg.latex?P[|E_{in}(g) - E_{out}(g)|>\epsilon]\leq 4m_H(2N)e^{-\frac{1}{8}\epsilon^2N}" />
+  - <img src="https://latex.codecogs.com/svg.latex?P[|E_{in}(g) - E_{out}(g)|>\epsilon]\leq 4m_H(2N)e^{-\frac{1}{8}\epsilon^2N}" />
 - VC Dimension (d<sub>vc</sub> -> model complexity)
   > - the most points H can shatter
   > - N <= d<sub>vc</sub>(N) <= k (break point)
@@ -133,8 +131,8 @@ Hoeffding's Inequality doesn't apply to hypothesis set.
   > - independent of learning algorithm, input distribution, target function
   > - d<sub>vc</sub> measures the **effective number of parameters**
 - Generalization bound
-  > - <img src="https://latex.codecogs.com/svg.latex?\delta = 4m_H(2N)e^{-\frac{1}{8}\epsilon^2N}\Rightarrow \epsilon = \sqrt{\frac{8}{N}\ln\frac{4m_H(2N)}{\delta}} = \Omega" />
-  > - <img src="https://latex.codecogs.com/svg.latex?|E_{out}-E_{in}|\leq\sqrt{\frac{8}{N}\ln\frac{4m_H(2N)}{\delta}} = \Omega" />
+  - <img src="https://latex.codecogs.com/svg.latex?\delta = 4m_H(2N)e^{-\frac{1}{8}\epsilon^2N}\Rightarrow \epsilon = \sqrt{\frac{8}{N}\ln\frac{4m_H(2N)}{\delta}} = \Omega" />
+  - <img src="https://latex.codecogs.com/svg.latex?|E_{out}-E_{in}|\leq\sqrt{\frac{8}{N}\ln\frac{4m_H(2N)}{\delta}} = \Omega" />
 
 Tradeoff
 > - complex H -> better approximation (less bias)
@@ -178,7 +176,7 @@ Tradeoff
 ### Logistic Regression
 
 > <img src="https://latex.codecogs.com/svg.latex?\Large&space;s=\sum w_ix_i" />
-> 
+>
 > - linear classification: h(x) = sign(s)
 > - linear regression: h(x) = s
 > - logistic regression: h(x) = theta(s)
